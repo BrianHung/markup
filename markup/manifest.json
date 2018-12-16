@@ -1,0 +1,14 @@
+{
+    "name": "markup",
+    "version": "1.0",
+    "description": "storing your thoughts",
+    "permissions": ["storage"],
+    "manifest_version": 2,
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "chrome_url_overrides": {
+        "newtab": "markup.html"
+    }
+}
