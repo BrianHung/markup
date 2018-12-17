@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+    <head>
+    <title>markup</title>
+    <script type="text/javascript" src="editor.js"></script>
+
+    <style type="text/css">
+        .intLink {
+            cursor: pointer;
+        }
+        img.intLink {
+            border: 0;
+        }
+        #editor {
+            padding-top: 10vh;
+        }
+        #toolBar select {
+            font-size:10px;
+        }
+        #toolBar {
+            margin: 0vh 0vw 0vh 10vw;
+            position: relative;
+        }
+        #textBox {
+            margin: 0vh 0vw 0vh 10vw;
+            font-size: 32px;
+            outline: none;
+        }
+        #textBox #sourceText {
+            padding: 0;
+            margin: 0;
+            min-width: 498px;
+            min-height: 200px;
+        }
+        #editMode label {
+            cursor: pointer;
+        }
+
+        .icon {
+            height: 18px;
+            position: absolute;
+            width: 18px;
+        }
+
+        .icon-box {
+            display: inline-block;
+            margin: 00px 24px 12px 00px;
+        }
+
+        .slct-box {
+            display: inline-block;
+            margin: 00px 12px 12px 12px;
+        }
+
+        .icon-undo {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 2220px;
+        }
+
+        .icon-redo {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 2354px;
+        }
+
+        .icon-prnt {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 22px 3836px;
+        }
+
+        .icon-bold {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 1617px;
+        }
+
+        .icon-ital {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 2769px;
+        }
+
+        .icon-undr {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 22px 3513px;
+        }
+
+        .icon-left {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 0988px;
+        }
+
+        .icon-cntr {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 2014px;
+        }
+
+        .icon-rght {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 0440px;
+        }
+
+        .icon-nmbr {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 1450px;
+        }
+
+        .icon-dotd {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 20px 1884px;
+        }
+
+        .icon-aint {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 1700px;
+        }
+
+        .icon-dint {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 20px 2112px;
+        }
+
+        .icon-link {
+            background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+            background-position: 00px 2202px;
+        }
+
+
+
+
+        </style>
+    </head>
+
+    <body onload="initDoc();">
+        <div id="editor">
+            <div id="toolBar">
+                <div class="icon-box">
+                    <img class="intLink icon icon-undo" title="Undo" onclick="formatDoc('undo');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-redo" title="Redo" onclick="formatDoc('redo');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-prnt" title="Print" onclick="printDoc();" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="slct-box">
+                    <select onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=this.selectedIndex;">
+                        <option value="p" selected>Normal text</option>
+                        <option value="h1">Title 1 &lt;h1&gt;</option>
+                        <option value="h2">Title 2 &lt;h2&gt;</option>
+                        <option value="h3">Title 3 &lt;h3&gt;</option>
+                        <option value="h4">Title 4 &lt;h4&gt;</option>
+                        <option value="h5">Title 5 &lt;h5&gt;</option>
+                        <option value="h6">Subtitle &lt;h6&gt;</option>
+                        <option value="pre">Preformatted &lt;pre&gt;</option>
+                    </select>
+                </div>
+                <div class="slct-box">
+                    <select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=this.selectedIndex;">
+                        <option class="heading" selected>Arial</option>
+                        <option>Arial Black</option>
+                        <option>Courier New</option>
+                        <option>Times New Roman</option>
+                    </select>
+                </div>
+                <div class="slct-box">
+                    <select onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=this.selectedIndex;">
+                        <option value="1">Very small</option>
+                        <option value="2">A bit small</option>
+                        <option value="3" class="heading" selected>Normal</option>
+                        <option value="4">Medium-large</option>
+                        <option value="5">Big</option>
+                        <option value="6">Very big</option>
+                        <option value="7">Maximum</option>
+                    </select>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-bold" title="Bold" onclick="formatDoc('bold');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-ital" title="Italic" onclick="formatDoc('italic');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-undr" title="Underline" onclick="formatDoc('underline');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="slct-box">
+                    <select onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=this.selectedIndex;">
+                        <option value="red">red</option>
+                        <option value="blue">blue</option>
+                        <option value="green">green</option>
+                        <option value="black" class="heading" selected>black</option>
+                    </select>
+                </div>
+                <div class="slct-box">
+                    <select onchange="formatDoc('backcolor',this[this.selectedIndex].value);this.selectedIndex=0;">
+                        <option value="white" class="heading" selected>white</option>
+                        <option value="red">red</option>
+                        <option value="green">green</option>
+                        <option value="black">black</option>
+                        <option value="yellow">yellow</option>
+                    </select>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-left" title="Left align" onclick="formatDoc('justifyleft');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-cntr" title="Center align" onclick="formatDoc('justifycenter');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-rght" title="Right align" onclick="formatDoc('justifyright');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-nmbr" title="Numbered list" onclick="formatDoc('insertorderedlist');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-dotd" title="Dotted list" onclick="formatDoc('insertunorderedlist');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-aint" title="Add indentation" onclick="formatDoc('indent');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-dint" title="Delete indentation" onclick="formatDoc('outdent');" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+                <div class="icon-box">
+                    <img class="intLink icon icon-link" title="Hyperlink" onclick="var sLnk=prompt('Write the URL here','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                </div>
+            </div>
+            <div id="textBox" contenteditable="true"><p>Lorem ipsum</p></div>
+        </div>
+    </body>
+</html>
