@@ -1,0 +1,135 @@
+#container {
+    margin-top: 5vh;
+}
+
+#toolBar select {
+    font-size: 12px;
+    outline: none;
+}
+#toolBar {
+    margin: 0vh 0vw 0vh 10vw;
+    position: relative;
+}
+#editor {
+    margin: 0vh 0vw 0vh 10vw;
+    font-size: 32px;
+    padding-top: 2vh;
+    outline: none;
+}
+#editor #sourceText {
+    padding: 0;
+    margin: 0;
+    min-width: 498px;
+    min-height: 200px;
+}
+
+#editMode label {
+    cursor: pointer;
+}
+
+.icon {
+    height: 18px;
+    position: absolute;
+    width: 18px;
+    cursor: pointer;
+}
+
+.icon-box {
+    display: inline-block;
+    margin: 00px 24px 12px 00px;
+}
+
+.slct-box {
+    display: inline-block;
+    margin: 00px 12px 12px 12px;
+}
+
+.icon-undo {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 2220px;
+}
+
+.icon-redo {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 2354px;
+}
+
+.icon-prnt {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 22px 3836px;
+}
+
+.icon-bold {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 1617px;
+}
+
+.icon-ital {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 2769px;
+}
+
+.icon-undr {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 22px 3513px;
+}
+
+.icon-strk {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 20px 3629px;
+}
+
+.icon-left {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 0988px;
+}
+
+.icon-cntr {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 23px 3746px;
+}
+
+.icon-rght {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 0440px;
+}
+
+.icon-nmbr {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 1450px;
+}
+
+.icon-dotd {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 20px 1884px;
+}
+
+.icon-aint {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 1700px;
+}
+
+.icon-dint {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 20px 2112px;
+}
+
+.icon-link {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 2202px;
+}
+
+.icon-unlk {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 2788px;
+}
+
+.icon-imge {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 20px 1282px;
+}
+
+.icon-rfmt {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 00px 2183px;
+}

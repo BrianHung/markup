@@ -2,7 +2,7 @@
         var oDoc, sDefTxt;
 
         function initDoc() {
-          oDoc = document.getElementById("textBox");
+          oDoc = document.getElementById("editor");
           sDefTxt = oDoc.innerHTML;
         }
 
