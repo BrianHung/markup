@@ -2,7 +2,7 @@
 
 replaces new tabs with a text editor
 
-![](example.png)
+![](example.PNG)
 
 ### How to Install
 
