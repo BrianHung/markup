@@ -23,7 +23,7 @@
     min-height: 200px;
 }
 
-#editor p {
+#editor p, #editor h1, #editor h2, #editor h3, #editor h4, #editor h5, #editor h6 {
     margin: 0;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .icon {
-    height: 18px;
+    height: 17px;
     position: absolute;
     width: 18px;
     cursor: pointer;
@@ -130,10 +130,39 @@
 
 .icon-imge {
     background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
-    background-position: 20px 1282px;
+    background-position: 22px 1282px;
 }
 
 .icon-rfmt {
     background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
     background-position: 00px 2183px;
+}
+
+.slct-clr {
+    margin: 00px 8px 0px 0px;
+}
+
+#btn-fclr, #btn-bclr {
+    border: none;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+select {
+    -webkit-appearance: none;
+    border: none;
+}
+
+#btn-fclr {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: -1px 2426px;
+    border-bottom: 2px solid;
+    border-bottom-color: black;
+}
+
+#btn-bclr {
+    background: url(https://ssl.gstatic.com/docs/common/material_common_sprite77.svg);
+    background-position: 20px 3648px;
+    border-bottom: 2px solid;
+    border-bottom-color: white;
 }

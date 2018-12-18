@@ -98,10 +98,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById("btn-fclr").addEventListener("change", function() {
         formatDoc('forecolor', this[this.selectedIndex].value);
         this.selectedIndex = this.selectedIndex;
+        this.style.borderBottomColor = this[this.selectedIndex].value;
     });
 
     document.getElementById("btn-bclr").addEventListener("change", function() {
         formatDoc('backcolor', this[this.selectedIndex].value);
         this.selectedIndex = this.selectedIndex;
+        this.style.borderBottomColor = this[this.selectedIndex].value;
     });
 });
