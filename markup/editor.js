@@ -1,18 +1,29 @@
-var oDoc, sDefTxt;
+var toolbarOptions = [
 
-function initDoc() {
-    oDoc = document.getElementById("editor");
-    sDefTxt = oDoc.innerHTML;
-}
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'font': [] }],
 
-function formatDoc(sCmd, sValue) {
-    document.execCommand(sCmd, false, sValue);
-    oDoc.focus();
-}
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
 
-function printDoc() {
-    var oPrntWin = window.open("","_blank","width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
-    oPrntWin.document.open();
-    oPrntWin.document.write("<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" + oDoc.innerHTML + "<\/body><\/html>");
-    oPrntWin.document.close();
+  ['link', 'image', 'video'],
+
+  [{'align': '' }, { 'align': 'center' }, { 'align': 'right' }, { 'align': 'justify' }],
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  ['blockquote', 'code-block', 'formula'],
+
+  ['clean']                                         // remove formatting button
+];
+
+Quill.register('modules/markdownShortcuts', MarkdownShortcuts);
+
+var quill = new Quill('#editor', {
+theme: 'snow',
+modules: {
+    toolbar: toolbarOptions,
+    markdownShortcuts: {}
 }
+});

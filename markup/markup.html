@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- Stylesheets -->
+        <link href="css/quill.snow.css" rel="stylesheet">
+        <link href="css/katex.min.css" rel="stylesheet">
+
+        <!-- Quill library -->
+        <script src="js/quill.js"></script>
+        <script src="js/markdownShortcuts.js"></script>
+
+        <!-- jQuery library -->
+        <script src="js/jquery.min.js"></script>
+
+        <!-- KaTeX library -->
+        <script src="js/katex.min.js"></script>
+
+        <!-- Highlight library -->
+        <script src="js/highlight.min.js"></script>
+
+        <style>
+            .editor-container {
+                margin: 5vh 10vw 5vh 10vw;
+            }
+            .ql-container {
+                font-size: 32px;
+            }
+            .ql-toolbar.ql-snow, .ql-container.ql-snow {
+                border: none;
+            }
+            .ql-toolbar.ql-snow {
+                text-align: center;
+            }
+            .ql-container.ql-snow {
+                margin-top: 5vh;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <!-- Create the editor container -->
+        <div class="editor-container">
+            <div id="editor">
+              <p></p>
+            </div>
+        </div>
+
+        <!-- Initialize Quill editor, and Chrome storage -->
+        <script src="editor.js"></script>
+        <script src="storage.js"></script>
+    </body>
+
+</html>

@@ -1,7 +1,7 @@
 {
     "name": "markup",
     "version": "1.0",
-    "description": "a better cache for thinking",
+    "description": "storing your thoughts",
     "permissions": ["storage"],
     "manifest_version": 2,
     "background": {
@@ -9,6 +9,7 @@
       "persistent": false
     },
     "chrome_url_overrides": {
-        "newtab": "markup.html"
-    }
+        "newtab": "markup-wip.html"
+    },
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 }
