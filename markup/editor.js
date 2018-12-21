@@ -1,4 +1,8 @@
+// Highlight settings
+
 hljs.initHighlightingOnLoad();
+
+// Quill editor settings
 
 var toolbarOptions = [
 
@@ -20,8 +24,8 @@ var toolbarOptions = [
   ['clean']                                         // remove formatting button
 ];
 
+
 Quill.register('modules/markdownShortcuts', MarkdownShortcuts);
-//Quill.register('modules/emoji-shortname', ShortNameEmoji);
 
 var quill = new Quill('#editor', {
     theme: 'snow',
@@ -29,6 +33,8 @@ var quill = new Quill('#editor', {
         syntax: true,
         toolbar: toolbarOptions,
         markdownShortcuts: {},
+        imageResize: {},
         "emoji-shortname": true,
+        magicUrl: true
     },
 });

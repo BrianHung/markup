@@ -75,7 +75,7 @@
     box-sizing: border-box;
     display: block;
     margin: 0;
-    padding: 3px 2px 6px;
+    padding: 3px 2px 3px 2px;
     text-align: left;
     width: 100%
 }
@@ -305,10 +305,11 @@ button.ql-table[value=append-col]:after {
 }
 
 .button-emoji {
-    margin-bottom: -5px;
-    margin: 0px 5px -5px 5px;
-    min-width: 20px;
+    margin: 0px 5px 0px 5px;
+    min-width: 25px;
     justify-content: center;
+    position: relative;
+    top: 3px;
 }
 
 .ql-emojiblot {
@@ -317,7 +318,7 @@ button.ql-table[value=append-col]:after {
 
 .ap,
 .ql-emojiblot {
-    display: inline-flex
+    display: inline-block;
 }
 
 .ap {

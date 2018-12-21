@@ -7,17 +7,16 @@ document.addEventListener("DOMContentLoaded", function() {
         editor.innerHTML = query.value;
     });
 
-    document.getElementById("editor").addEventListener("input", function() {
+    editor.addEventListener("keyup", function() {
 
         // Get a value saved in a form.
         var editorValue = editor.innerHTML;
 
         // Save it using the Chrome extension storage API.
         chrome.storage.sync.set({'value': editorValue}, function() {
-
-            // Notify that we saved.
-            console.log("edits have been saved!");
-            chrome.storage.sync.get(function(result){console.log(result)})
+            // Notify that we saved (for testing purposes).
+            // console.log("edits have been saved!");
+            // chrome.storage.sync.get(function(result){console.log(result)})
         });
 
     });
