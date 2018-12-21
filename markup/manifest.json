@@ -12,6 +12,8 @@
         "newtab": "markup.html"
     },
     "icons": {
-        "128": "img/thought.png"
-    }
+        "16": "img/pencil16.png",
+        "48": "img/pencil48.png",
+       "128": "img/pencil128.png"
+   }
 }

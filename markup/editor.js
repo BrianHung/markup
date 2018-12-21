@@ -21,6 +21,7 @@ var toolbarOptions = [
 ];
 
 Quill.register('modules/markdownShortcuts', MarkdownShortcuts);
+//Quill.register('modules/emoji-shortname', ShortNameEmoji);
 
 var quill = new Quill('#editor', {
     theme: 'snow',
