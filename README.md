@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="markup/img/pencil.png" width=42px>
+  <img src="markup/img/pencil.png" width=32px>
   <strong>markup</strong>
 </h1>
 
@@ -9,10 +9,10 @@ A Google Chrome extension that replaces new tabs with a text editor. <br> Built 
 
 <figure>
   <img src="example.PNG" alt="Trulli" style="width:100%">
-  <figcaption><p align="center"><a href="./">demo</a></p></figcaption>
+  <figcaption><p align="center"><a href="https://brianhung.info/markup/demo">demo</a></p></figcaption>
 </figure>
 
-### Features
+## Features
 
 - standard text editor
 
@@ -20,7 +20,7 @@ A Google Chrome extension that replaces new tabs with a text editor. <br> Built 
 
 - Markdown and Emoji shortcuts
 
-### Installation
+## Installation
 
 0. Clone this repo.
 
@@ -30,13 +30,13 @@ A Google Chrome extension that replaces new tabs with a text editor. <br> Built 
 
 3. Click `load unpacked` and select the *internal* `markup` folder.
 
-### Usage
+## Usage
 
 - Works offline, but...
 
 - Everything is stored in the browser cache. All notes will be deleted if `cached images and files` is cleared.
 
-### Modules
+## Modules
 
 - [quill-emoji](https://github.com/contentco/quill-emoji)
 - [quill-image-resize-module](https://github.com/kensnyder/quill-image-resize-module)
