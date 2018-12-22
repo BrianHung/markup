@@ -1,3 +1,8 @@
+<div>
+  <img src="markup/img/pencil.png" width=32px>
+  <h1 style="position: relative;">markup</h1>
+</div>
+
 <h1 align="center">
   <img src="markup/img/pencil.png" width=32px>
   <strong>markup</strong>
