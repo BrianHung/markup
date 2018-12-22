@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-A Google Chrome extension that replaces new tabs with a text editor. <br> Built with <a href="https://quilljs.com/">quill.js</a>.
+A Google Chrome extension that replaces new tabs with a text editor. <br> Built with <a href="https://quilljs.com/">Quill.js</a>.
 </p>
 
 <figure>
