@@ -1,0 +1,38 @@
+body {
+    --font-size: 1.5rem;
+}
+.editor-container {
+    margin: 5vh 10vw 5vh 10vw;
+}
+.ql-container {
+    font-size: var(--font-size);
+}
+.ql-toolbar.ql-snow, .ql-container.ql-snow {
+    border: none;
+}
+.ql-toolbar.ql-snow {
+    text-align: center;
+}
+.ql-tooltip {
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
+}
+.ql-container.ql-snow {
+    margin-top: 5vh;
+}
+.ql-snow .ql-editor pre.ql-syntax {
+    background-color: #f0f0f0;
+    color: black;
+}
+.ql-snow .ql-editor pre {
+    padding: 10px 10px;
+}
+.button-emoji, .emoji-shortname {
+    font-size: var(--font-size);
+}
+@media print {
+  .ql-toolbar {
+    display: none;
+  }
+}
