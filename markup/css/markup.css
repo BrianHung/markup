@@ -4,6 +4,46 @@ body {
 .editor-container {
     margin: 5vh 10vw 5vh 10vw;
 }
+
+/*
+h1::before {
+    content: "\1F4CC";
+    position: absolute;
+    font-size: 24px;
+    transform: rotate(225deg);
+
+    left: -2px;
+    vertical-align: middle;
+    margin-top: 14px;
+
+    pointer-events: all;
+    cursor: pointer;
+    visibility: hidden;
+
+    pointer-events: all;
+}
+
+h1:hover::before {
+    visibility: visible;
+}
+
+h1:active::before {
+    transform: rotate(315deg);
+    transition: all 0.3s ease-in;
+}
+*/
+
+
+.ql-editor {
+    padding-left: 48px;
+}
+.ql-snow .ql-editor h1 {
+    position: relative;
+    padding-left: 48px;
+    left: -48px;
+}
+
+
 .ql-container {
     font-size: var(--font-size);
 }
@@ -19,7 +59,7 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
 }
 .ql-container.ql-snow {
-    margin-top: 5vh;
+    margin-top: 0vh;
 }
 .ql-snow .ql-editor pre.ql-syntax {
     background-color: #f0f0f0;
