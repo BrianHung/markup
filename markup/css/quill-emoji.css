@@ -306,10 +306,11 @@ button.ql-table[value=append-col]:after {
 
 .button-emoji {
     margin: 0px 5px 0px 5px;
-    min-width: 25px;
+    min-width: 35px;
     justify-content: center;
+    text-align: center;
     position: relative;
-    top: 3px;
+    top: 0px;
 }
 
 .ql-emojiblot {
