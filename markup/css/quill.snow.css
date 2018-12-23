@@ -896,6 +896,25 @@
   padding: 3px 5px;
   width: 170px;
 }
+/* Added these. */
+.ql-snow .ql-tooltip textarea {
+  display: none;
+}
+.ql-snow .ql-tooltip[data-mode=formula] {
+  padding: 12px 12px;
+}
+.ql-snow .ql-tooltip[data-mode=formula] textarea {
+  display: block;
+  padding: 20px;
+  font-size: 18px;
+}
+.ql-snow .ql-tooltip[data-mode=formula] * {
+  display: block;
+}
+.ql-snow .ql-tooltip[data-mode=formula] a.ql-action {
+  text-align: center;
+}
+/* Added these. ^ */
 .ql-snow .ql-tooltip a.ql-preview {
   display: inline-block;
   max-width: 200px;
@@ -923,16 +942,25 @@
 .ql-snow .ql-tooltip.ql-editing input[type=text] {
   display: inline-block;
 }
+.ql-snow .ql-tooltip.ql-editing textarea {
+  display: inline-block;
+  width: 500px;
+  min-height: 400px;
+}
 .ql-snow .ql-tooltip.ql-editing a.ql-action::after {
   border-right: 0px;
   content: 'Save';
   padding-right: 0px;
+}
+.ql-snow .ql-tooltip[data-mode=formula].ql-editing a.ql-action::after {
+  margin-left: 0px;
 }
 .ql-snow .ql-tooltip[data-mode=link]::before {
   content: "Enter link:";
 }
 .ql-snow .ql-tooltip[data-mode=formula]::before {
   content: "Enter formula:";
+  display: none;
 }
 .ql-snow .ql-tooltip[data-mode=video]::before {
   content: "Enter video:";
