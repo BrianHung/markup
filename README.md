@@ -20,6 +20,8 @@ A Google Chrome extension that replaces new tabs with a text editor. <br> Built 
 
 - Markdown and Emoji shortcuts
 
+- collapsible sections (click slight-left of a header)
+
 ## Installation
 
 0. Clone this repo.
