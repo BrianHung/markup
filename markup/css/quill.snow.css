@@ -903,10 +903,19 @@
 .ql-snow .ql-tooltip[data-mode=formula] {
   padding: 12px 12px;
 }
+.ql-snow .ql-tooltip[data-mode=link]  textarea {
+  display: inline-block;
+  height: 32px;
+  font-size: 22px;
+  width: 400px;
+  margin-bottom: -7px;
+}
 .ql-snow .ql-tooltip[data-mode=formula] textarea {
   display: block;
   padding: 20px;
   font-size: 18px;
+  width: 400px;
+  height: 200px;
 }
 .ql-snow .ql-tooltip[data-mode=formula] * {
   display: block;
@@ -942,7 +951,7 @@
 .ql-snow .ql-tooltip.ql-editing input[type=text] {
   display: inline-block;
 }
-.ql-snow .ql-tooltip.ql-editing textarea {
+.ql-snow .ql-tooltip[datamode=formula].ql-editing textarea {
   display: inline-block;
   width: 500px;
   min-height: 400px;

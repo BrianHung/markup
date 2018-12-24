@@ -16,28 +16,20 @@ h1::before {
     vertical-align: middle;
     margin-top: 14px;
 
-    pointer-events: all;
     cursor: pointer;
     visibility: hidden;
 
-    pointer-events: all;
 }
 
 h1:hover::before {
     visibility: visible;
 }
-
-h1:active::before {
-    transform: rotate(315deg);
-    transition: all 0.3s ease-in;
-}
 */
-
 
 .ql-editor {
     padding-left: 48px;
 }
-.ql-snow .ql-editor h1 {
+.ql-snow .ql-editor h1, .ql-snow .ql-editor h2, .ql-snow .ql-editor h3, .ql-snow .ql-editor h4, .ql-snow .ql-editor h5, .ql-snow .ql-editor h6 {
     position: relative;
     padding-left: 48px;
     left: -48px;
