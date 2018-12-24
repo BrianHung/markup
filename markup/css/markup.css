@@ -28,6 +28,7 @@ h1:hover::before {
 
 .ql-editor {
     padding-left: 48px;
+    height: 100vh;
 }
 .ql-snow .ql-editor h1, .ql-snow .ql-editor h2, .ql-snow .ql-editor h3, .ql-snow .ql-editor h4, .ql-snow .ql-editor h5, .ql-snow .ql-editor h6 {
     position: relative;
