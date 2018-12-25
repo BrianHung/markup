@@ -922,6 +922,7 @@
 }
 .ql-snow .ql-tooltip[data-mode=formula] a.ql-action {
   text-align: center;
+  margin-top: 8px
 }
 /* Added these. ^ */
 .ql-snow .ql-tooltip a.ql-preview {

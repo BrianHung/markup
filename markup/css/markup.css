@@ -2,7 +2,7 @@ body {
     --font-size: 1.5rem;
 }
 .editor-container {
-    margin: 5vh 10vw 5vh 10vw;
+    margin: 0vh 10vw 5vh 10vw;
 }
 
 /*
@@ -34,6 +34,10 @@ h1:hover::before {
     position: relative;
     padding-left: 48px;
     left: -48px;
+}
+
+.ql-toolbar {
+    padding: 2.5% 13% !important;
 }
 
 
