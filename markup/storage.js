@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var editor = document.getElementsByClassName("ql-editor")[0];
 
     chrome.storage.sync.get(['value'], function(query) {
-        // Notify that we saved.
         editor.innerHTML = query.value;
     });
 

@@ -17,16 +17,16 @@
 
         <!-- Quill library -->
         <link href="css/quill.snow.css" rel="stylesheet">
-        <script type="text/javascript" src="js/quill-max.js"></script>
+        <script type="text/javascript" src="js/quill.js"></script>
 
         <!-- Quill modules -->
-
-        <script type="text/javascript" src="js/quill-markdown.js"></script>
-        <script type="text/javascript" src="js/quill-image-resize.js"></script>
-        <script type="text/javascript" src="js/quill-magic-url.js"></script>
+        <script type="text/javascript" src="js/quill-modules/displayMode.js"></script>
+        <script type="text/javascript" src="js/quill-modules/markdown.js"></script>
+        <script type="text/javascript" src="js/quill-modules/imageResize.js"></script>
+        <script type="text/javascript" src="js/quill-modules/magicUrl.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/quill-emoji.css">
-        <script type="text/javascript" src="js/quill-emoji.js"></script>
+        <script type="text/javascript" src="js/quill-modules/emoji.js"></script>
 
         <!-- Stylesheet -->
         <link rel="stylesheet" type="text/css" href="css/markup.css">
@@ -41,9 +41,13 @@
             </div>
         </div>
 
-        <!-- Initialize Quill editor, and Chrome storage -->
+        <!-- Initialize Quill editor -->
         <script type="text/javascript" src="editor.js"></script>
+
+        <!-- Initialize Chrome storage -->
         <script type="text/javascript" src="storage.js"></script>
+
+        <!-- Initialize collapisble headers -->
         <script type="text/javascript" src="collapse.js"></script>
     </body>
 

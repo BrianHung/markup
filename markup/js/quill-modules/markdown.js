@@ -126,9 +126,11 @@ var MarkdownShortcuts = function () {
       action: function action(text, selection) {
         var size = text.trim().length;
         // Need to defer this action https://github.com/quilljs/quill/issues/1134
+
+        console.log(selection.index, "text", text, text.length);
         setTimeout(function () {
           _this.quill.formatLine(selection.index, 0, 'header', size);
-          _this.quill.deleteText(selection.index - text.length, text.length);
+          _this.quill.deleteText(selection.index - size - 1, size + 1);
         }, 0);
       }
     }, {
@@ -143,7 +145,7 @@ var MarkdownShortcuts = function () {
       }
     }, {
       name: 'code-block',
-      pattern: /^`{3}(?:\s|\n)/g,
+      pattern: /^(`){3}(?:\s|\n)/g,
       action: function action(text, selection) {
         // Need to defer this action https://github.com/quilljs/quill/issues/1134
         setTimeout(function () {
@@ -152,94 +154,90 @@ var MarkdownShortcuts = function () {
         }, 0);
       }
     }, {
-      name: 'bolditalic',
-      pattern: /(?:\*|_){3}(.+?)(?:\*|_){3}/g,
-      action: function action(text, selection, pattern, lineStart) {
+      name: 'code',
+      pattern: /(?:`)(.+?)(?:`\s)/g,
+      action: function action(text, selection, pattern) {
         var match = pattern.exec(text);
 
         var annotatedText = match[0];
         var matchedText = match[1];
-        var startIndex = lineStart + match.index;
 
         if (text.match(/^([*_ \n]+)$/g)) return;
 
         setTimeout(function () {
-          _this.quill.deleteText(startIndex, annotatedText.length);
-          _this.quill.insertText(startIndex, matchedText, { bold: true, italic: true });
+          _this.quill.deleteText(selection.index - annotatedText.length - 1, annotatedText.length);
+          _this.quill.insertText(selection.index - annotatedText.length - 1, matchedText, { code: true });
+          _this.quill.format('code', false);
+        }, 0);
+      }
+    }, {
+      name: 'bolditalic',
+      pattern: /(?:\*|_){3}(.+?)(?:\*|_\s){3}/g,
+      action: function action(text, selection, pattern) {
+        var match = pattern.exec(text);
+
+        var annotatedText = match[0];
+        var matchedText = match[1];
+
+        if (text.match(/^([*_ \n]+)$/g)) return;
+
+        setTimeout(function () {
+          _this.quill.deleteText(selection.index - annotatedText.length - 1, annotatedText.length);
+          _this.quill.insertText(selection.index - annotatedText.length - 1, matchedText, { bold: true, italic: true });
           _this.quill.format('bold', false);
         }, 0);
       }
     }, {
       name: 'bold',
-      pattern: /(?:\*|_){2}(.+?)(?:\*|_){2}/g,
-      action: function action(text, selection, pattern, lineStart) {
+      pattern: /(?:\*|_){2}(.+?)(?:\*|_\s){2}/g,
+      action: function action(text, selection, pattern) {
         var match = pattern.exec(text);
 
         var annotatedText = match[0];
         var matchedText = match[1];
-        var startIndex = lineStart + match.index;
 
         if (text.match(/^([*_ \n]+)$/g)) return;
 
         setTimeout(function () {
-          _this.quill.deleteText(startIndex, annotatedText.length);
-          _this.quill.insertText(startIndex, matchedText, { bold: true });
+          _this.quill.deleteText(selection.index - annotatedText.length - 1, annotatedText.length);
+          _this.quill.insertText(selection.index - annotatedText.length - 1, matchedText, { bold: true });
           _this.quill.format('bold', false);
         }, 0);
       }
     }, {
       name: 'italic',
-      pattern: /(?:\*|_){1}(.+?)(?:\*|_){1}/g,
-      action: function action(text, selection, pattern, lineStart) {
+      pattern: /(?:\*|_){1}(.+?)(?:\*|_\s){1}/g,
+      action: function action(text, selection, pattern) {
         var match = pattern.exec(text);
 
         var annotatedText = match[0];
         var matchedText = match[1];
-        var startIndex = lineStart + match.index;
+
+        console.log(match);
 
         if (text.match(/^([*_ \n]+)$/g)) return;
 
         setTimeout(function () {
-          _this.quill.deleteText(startIndex, annotatedText.length);
-          _this.quill.insertText(startIndex, matchedText, { italic: true });
+          _this.quill.deleteText(selection.index - annotatedText.length - 1, annotatedText.length);
+          _this.quill.insertText(selection.index - annotatedText.length - 1, matchedText, { italic: true });
           _this.quill.format('italic', false);
         }, 0);
       }
     }, {
       name: 'strikethrough',
-      pattern: /(?:~~)(.+?)(?:~~)/g,
-      action: function action(text, selection, pattern, lineStart) {
+      pattern: /(?:~~)(.+?)(?:~~\s)/g,
+      action: function action(text, selection, pattern) {
         var match = pattern.exec(text);
 
         var annotatedText = match[0];
         var matchedText = match[1];
-        var startIndex = lineStart + match.index;
 
         if (text.match(/^([*_ \n]+)$/g)) return;
 
         setTimeout(function () {
-          _this.quill.deleteText(startIndex, annotatedText.length);
-          _this.quill.insertText(startIndex, matchedText, { strike: true });
+          _this.quill.deleteText(selection.index - annotatedText.length - 1, annotatedText.length);
+          _this.quill.insertText(selection.index - annotatedText.length - 1, matchedText, { strike: true });
           _this.quill.format('strike', false);
-        }, 0);
-      }
-    }, {
-      name: 'code',
-      pattern: /(?:`)(.+?)(?:`)/g,
-      action: function action(text, selection, pattern, lineStart) {
-        var match = pattern.exec(text);
-
-        var annotatedText = match[0];
-        var matchedText = match[1];
-        var startIndex = lineStart + match.index;
-
-        if (text.match(/^([*_ \n]+)$/g)) return;
-
-        setTimeout(function () {
-          _this.quill.deleteText(startIndex, annotatedText.length);
-          _this.quill.insertText(startIndex, matchedText, { code: true });
-          _this.quill.format('code', false);
-          _this.quill.insertText(_this.quill.getSelection(), ' ');
         }, 0);
       }
     }, {
@@ -249,7 +247,6 @@ var MarkdownShortcuts = function () {
         var startIndex = selection.index - text.length;
         setTimeout(function () {
           _this.quill.deleteText(startIndex, text.length);
-
           _this.quill.insertEmbed(startIndex + 1, 'hr', true, Quill.sources.USER);
           _this.quill.insertText(startIndex + 2, "\n", Quill.sources.SILENT);
           _this.quill.setSelection(startIndex + 2, Quill.sources.SILENT);
@@ -268,9 +265,10 @@ var MarkdownShortcuts = function () {
       name: 'image',
       pattern: /(?:!\[(.+?)\])(?:\((.+?)\))/g,
       action: function action(text, selection, pattern) {
+
         var startIndex = text.search(pattern);
         var matchedText = text.match(pattern)[0];
-        // const hrefText = text.match(/(?:!\[(.*?)\])/g)[0]
+
         var hrefLink = text.match(/(?:\((.*?)\))/g)[0];
         var start = selection.index - matchedText.length - 1;
         if (startIndex !== -1) {
@@ -286,6 +284,7 @@ var MarkdownShortcuts = function () {
       action: function action(text, selection, pattern) {
         var startIndex = text.search(pattern);
         var matchedText = text.match(pattern)[0];
+
         var hrefText = text.match(/(?:\[(.*?)\])/g)[0];
         var hrefLink = text.match(/(?:\((.*?)\))/g)[0];
         var start = selection.index - matchedText.length - 1;
@@ -296,7 +295,39 @@ var MarkdownShortcuts = function () {
           }, 0);
         }
       }
-    }];
+    }, {
+      name: 'displayFormula',
+      pattern: /(?:\$){2}(.+?)(?:\$){2}/g,
+      action: function action(text, selection, pattern) {
+        var match = pattern.exec(text);
+
+        var annotatedText = match[0];
+        var matchedText = match[1];
+
+        if (text.match(/^([*_ \n]+)$/g)) return;
+
+        setTimeout(function () {
+          _this.quill.deleteText(selection.index - annotatedText.length - 1, annotatedText.length);
+          _this.quill.insertEmbed(selection.index - annotatedText.length - 1, 'displayFormula', matchedText);
+        }, 0);
+      }
+    }, {
+    name: 'inlineFormula',
+    pattern: /(?:\$){1}(.+?)(?:\$){1}/g,
+    action: function action(text, selection, pattern) {
+      var match = pattern.exec(text);
+
+      var annotatedText = match[0];
+      var matchedText = match[1];
+
+      if (text.match(/^([*_ \n]+)$/g)) return;
+
+      setTimeout(function () {
+        _this.quill.deleteText(selection.index - annotatedText.length - 1, annotatedText.length);
+        _this.quill.insertEmbed(selection.index - annotatedText.length - 1, 'formula', matchedText);
+      }, 0);
+    }
+  }];
 
     // Handler that looks for insert deltas that match specific characters
     this.quill.on('text-change', function (delta, oldContents, source) {
@@ -315,16 +346,13 @@ var MarkdownShortcuts = function () {
   _createClass(MarkdownShortcuts, [{
     key: 'onSpace',
     value: function onSpace() {
+
       var selection = this.quill.getSelection();
       if (!selection) return;
 
-      var _quill$getLine = this.quill.getLine(selection.index),
-          _quill$getLine2 = _slicedToArray(_quill$getLine, 2),
-          line = _quill$getLine2[0],
-          offset = _quill$getLine2[1];
+      var lineLength = this.quill.getLine(selection.index)[0].length()
+      var text = this.quill.getText(selection.index - lineLength + 1, lineLength);
 
-      var text = line.domNode.textContent;
-      var lineStart = selection.index - offset;
       if (typeof text !== 'undefined' && text) {
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
@@ -334,11 +362,12 @@ var MarkdownShortcuts = function () {
           for (var _iterator = this.matches[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var match = _step.value;
 
+            console.log("text", text)
+
             var matchedText = text.match(match.pattern);
             if (matchedText) {
               // We need to replace only matched text not the whole line
-              console.log('matched', match.name, text);
-              match.action(text, selection, match.pattern, lineStart);
+              match.action(text, selection, match.pattern);
               return;
             }
           }
@@ -364,14 +393,11 @@ var MarkdownShortcuts = function () {
       var selection = this.quill.getSelection();
       if (!selection) return;
 
-      var _quill$getLine3 = this.quill.getLine(selection.index),
-          _quill$getLine4 = _slicedToArray(_quill$getLine3, 2),
-          line = _quill$getLine4[0],
-          offset = _quill$getLine4[1];
+      var lineLength = this.quill.getLine(selection.index)[0].length()
+      var text = this.quill.getText(selection.index - lineLength, lineLength);
 
-      var text = line.domNode.textContent + ' ';
-      var lineStart = selection.index - offset;
       selection.length = selection.index++;
+
       if (typeof text !== 'undefined' && text) {
         var _iteratorNormalCompletion2 = true;
         var _didIteratorError2 = false;
@@ -383,8 +409,7 @@ var MarkdownShortcuts = function () {
 
             var matchedText = text.match(match.pattern);
             if (matchedText) {
-              console.log('matched', match.name, text);
-              match.action(text, selection, match.pattern, lineStart);
+              match.action(text, selection, match.pattern);
               return;
             }
           }
