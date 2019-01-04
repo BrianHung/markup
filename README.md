@@ -14,17 +14,21 @@ A Google Chrome extension that replaces new tabs with a text editor. <br> Built 
 
 ## Features
 
-- standard text editor
+- rich text editor
 
-- code-fencing and inline math
+- code-fencing, inline & display math
 
-- Markdown and Emoji shortcuts
+- Emoji, Markdown, and LaTeX shortcuts
 
 - collapsible sections (click slight-left of a header)
 
-## Installation
+## Usage
 
 0. Clone this repo.
+
+```bash
+git clone https://github.com/BrianHung/markup
+```
 
 1. Go to `chrome://extensions/` via the address bar.
 
@@ -38,7 +42,7 @@ A Google Chrome extension that replaces new tabs with a text editor. <br> Built 
 
 - Everything is stored in the browser cache. All notes will be deleted if `cached images and files` is cleared.
 
-## Modules
+## Modules Used
 
 - [quill-emoji](https://github.com/contentco/quill-emoji)
 - [quill-image-resize-module](https://github.com/kensnyder/quill-image-resize-module)
