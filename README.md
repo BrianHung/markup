@@ -22,7 +22,7 @@ A Google Chrome extension that replaces new tabs with a text editor. <br> Built 
 
 - collapsible sections (click slight-left of a header)
 
-## Usage
+## Installation
 
 0. Clone this repo.
 
